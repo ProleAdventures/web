@@ -1,0 +1,141 @@
+# 🚀 Vercel + Supabase Deployment Guide
+
+## ✅ Critical Fixes Implemented
+
+### 1. SPA Routing Fix (✅ COMPLETED)
+- **File Created**: `vercel.json`
+- **Purpose**: Prevents 404 errors when users refresh pages or navigate directly to URLs
+- **Status**: ✅ Implemented
+
+```json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+```
+
+---
+
+## ⚠️ Critical Configuration Steps Required
+
+### 2. Environment Variables Setup
+
+**In Vercel Dashboard → Settings → Environment Variables, add:**
+
+| Variable Name | Value | Environment |
+|---------------|-------|-------------|
+| `VITE_SUPABASE_URL` | Your Supabase project URL | Production, Preview, Development |
+| `VITE_SUPABASE_ANON_KEY` | Your Supabase anon/public key | Production, Preview, Development |
+
+**✅ Code Verification**: Your existing code in `src/lib/supabase.ts` correctly uses `import.meta.env.VITE_*` format.
+
+### 3. Supabase Authentication Redirects
+
+**In Supabase Dashboard → Authentication → URL Configuration:**
+
+#### Site URL
+```
+https://proleadventures.com
+```
+
+#### Redirect URLs (for email confirmations/magic links)
+```
+https://proleadventures.com
+https://proleadventures.com/auth/callback
+https://*-yourusername.vercel.app
+https://*-yourusername.vercel.app/auth/callback
+```
+
+**Note**: Replace `yourusername` with your actual Vercel username.
+
+---
+
+## 📋 Pre-Deployment Checklist
+
+### Code Readiness
+- [x] ✅ vercel.json created for SPA routing
+- [x] ✅ Vite configuration optimized for production
+- [x] ✅ Supabase client properly configured with VITE_ prefixes
+- [x] ✅ Environment variables using import.meta.env pattern
+
+### Vercel Setup
+- [ ] Create Vercel account and connect GitHub repository
+- [ ] Add environment variables in Vercel dashboard
+- [ ] Configure custom domain (proleadventures.com)
+- [ ] Set build command: `npm run build:prod`
+- [ ] Set output directory: `dist`
+
+### Supabase Setup
+- [ ] Create Supabase project
+- [ ] Configure authentication redirect URLs
+- [ ] Create database tables (contact_messages, newsletter_signups)
+- [ ] Get project URL and anon key for Vercel environment variables
+
+### Domain Configuration
+- [ ] Point domain DNS to Vercel
+- [ ] Configure SSL certificate (automatic with Vercel)
+- [ ] Test domain propagation
+
+---
+
+## 🎯 Cost Analysis (Free Tier)
+
+### Vercel Free Tier Limits
+- **Bandwidth**: 100GB/month (you won't hit this with text/JSON content)
+- **Builds**: Unlimited for personal projects
+- **Domains**: Unlimited
+
+### Supabase Free Tier Limits
+- **Database**: 500MB (massive for text/JSON content)
+- **Auth**: 50,000 monthly active users
+- **Storage**: 1GB file storage
+
+**Total Monthly Cost**: $0.00 until you have substantial traffic
+
+---
+
+## 🔧 Technical Architecture
+
+### Why Vercel + Supabase Works Perfectly
+1. **Vite Optimization**: Vercel owns the team behind popular bundlers and auto-optimizes Vite builds
+2. **Seamless Integration**: Direct partnership between Vercel and Supabase
+3. **Auto-Configuration**: Vercel auto-detects Vite build settings
+4. **Environment Management**: Easy environment variable management across environments
+
+### Build Configuration
+```json
+{
+  "buildCommand": "npm run build:prod",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
+```
+
+---
+
+## 🚨 Common Issues & Solutions
+
+### Issue 1: 404 on Page Refresh
+**Solution**: ✅ Already fixed with vercel.json
+
+### Issue 2: Environment Variables Not Loading
+**Solution**: Ensure variables are named `VITE_*` in Vercel dashboard
+
+### Issue 3: Supabase Auth Redirect Errors
+**Solution**: Add all redirect URLs in Supabase dashboard (see section 3 above)
+
+### Issue 4: Build Failures
+**Solution**: Use `npm run build:prod` command to ensure production build
+
+---
+
+## 📞 Next Steps
+
+1. **Deploy to Vercel** using the checklist above
+2. **Configure Supabase** with the redirect URLs
+3. **Add environment variables** in both Vercel and Supabase
+4. **Test thoroughly** including page refreshes and auth flows
+5. **Monitor usage** to stay within free tier limits
+
+Your site is now technically ready for Vercel deployment! 🎉
