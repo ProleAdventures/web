@@ -1,0 +1,280 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Chelsea Market Font */
+@font-face {
+  font-family: 'Chelsea Market';
+  src: url('/fonts/ChelseaMarket-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Components - Enhanced Dark Grey on Pure Black */
+  .glass-base {
+    background: rgba(42, 42, 42, 0.85);
+    backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 30px rgba(16, 185, 129, 0.15);
+  }
+  
+  .glass-elevated {
+    background: rgba(52, 52, 52, 0.9);
+    backdrop-filter: blur(48px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 40px rgba(16, 185, 129, 0.2);
+  }
+  
+  .glass-subtle {
+    background: rgba(62, 62, 62, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 20px rgba(16, 185, 129, 0.1);
+  }
+
+  /* Enhanced glass effect for cards and containers */
+  .glass-card {
+    background: rgba(48, 48, 48, 0.88);
+    backdrop-filter: blur(32px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 16px 64px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 35px rgba(16, 185, 129, 0.18);
+  }
+
+  /* Ultra glass for major elements */
+  .glass-ultra {
+    background: rgba(58, 58, 58, 0.92);
+    backdrop-filter: blur(56px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 24px 96px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 50px rgba(16, 185, 129, 0.25);
+  }
+  
+  /* Enhanced Investigation Theme Shadows */
+  .shadow-glass {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 30px rgba(16, 185, 129, 0.12);
+  }
+  
+  .shadow-elevated {
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 40px rgba(16, 185, 129, 0.15);
+  }
+  
+  .shadow-subtle {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 18px rgba(16, 185, 129, 0.08);
+  }
+  
+  .shadow-investigation {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.35), 0 0 50px rgba(16, 185, 129, 0.15);
+  }
+
+  /* Enhanced shadow for maximum impact */
+  .shadow-ultra {
+    box-shadow: 0 28px 112px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 60px rgba(16, 185, 129, 0.2);
+  }
+  
+  /* Typography Classes */
+  .font-display {
+    font-family: 'Chelsea Market', 'Orbitron', 'Space Grotesk', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Chelsea Market', 'Inter', 'SF Pro Text', system-ui, sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'Fira Code', 'SF Mono', monospace;
+  }
+  
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-investigation-glow {
+    animation: investigation-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-scan {
+    animation: scan 3s linear infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+    }
+    to {
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+    }
+  }
+  
+  @keyframes investigation-glow {
+    from {
+      box-shadow: 0 0 5px rgba(16, 185, 129, 0.3), 0 0 10px rgba(16, 185, 129, 0.2);
+    }
+    to {
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 30px rgba(16, 185, 129, 0.3);
+    }
+  }
+  
+  @keyframes scan {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+    background-size: 200% 100%;
+  }
+  
+  .animate-investigation-scan {
+    animation: investigation-scan 4s ease-in-out infinite;
+  }
+  
+  @keyframes investigation-scan {
+    0% {
+      background-position: -200% 0;
+    }
+    50% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
+
+/* Leaflet custom styles - Unsolved Mysteries Theme */
+.leaflet-container {
+  background: transparent !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(0, 0, 0, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.leaflet-popup-close-button {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: rgba(16, 185, 129, 1) !important;
+}
+
+/* Investigation marker styles */
+.investigation-marker {
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6));
+}
+
+/* Custom glass marker styles */
+.custom-glass-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Loading animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .font-display {
+    font-size: 0.9em;
+  }
+}
