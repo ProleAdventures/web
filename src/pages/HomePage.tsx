@@ -1,70 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { MapPin, Camera, BookOpen, Users, ArrowRight, Star, Zap, Shield, Heart, Mail } from 'lucide-react';
+import React from 'react';
+import { MapPin, Camera, BookOpen, Users, ArrowRight, Star, Zap, Shield, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { saveNewsletterEmail } from '../lib/supabase';
-
-const NewsletterForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      await saveNewsletterEmail(email);
-      setSubmitStatus('success');
-      setEmail('');
-    } catch (error) {
-      console.error('Newsletter signup error:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-      <div className="flex flex-col sm:flex-row gap-4">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          required
-          className="flex-1 px-4 py-3 glass-elevated shadow-glass shadow-investigation rounded-xl text-neutral-50 placeholder-neutral-400 border-none focus:outline-none focus:ring-2 focus:ring-green-400 backdrop-blur-xl"
-        />
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="px-6 py-3 glass-base shadow-glass shadow-investigation hover:glass-elevated text-neutral-50 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-xl whitespace-nowrap"
-        >
-          {isSubmitting ? (
-            <div className="flex items-center">
-              <div className="w-4 h-4 border-2 border-neutral-300 border-t-transparent rounded-full animate-spin mr-2"></div>
-              Subscribing...
-            </div>
-          ) : (
-            'Subscribe'
-          )}
-        </button>
-      </div>
-      
-      {submitStatus === 'success' && (
-        <p className="text-green-400 text-sm mt-4 text-center">
-          Thanks for subscribing! Check your email for confirmation.
-        </p>
-      )}
-      
-      {submitStatus === 'error' && (
-        <p className="text-red-400 text-sm mt-4 text-center">
-          Something went wrong. Please try again.
-        </p>
-      )}
-    </form>
-  );
-};
+import { Newsletter } from '../components/Newsletter';
 
 export const HomePage: React.FC = () => {
   const featuredAdventures = [
@@ -224,25 +161,7 @@ export const HomePage: React.FC = () => {
 
       {/* Newsletter Signup Section */}
       <section className="py-20 px-4 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-elevated rounded-3xl p-12 shadow-glass shadow-investigation">
-            <div className="text-center mb-8">
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
-                  <Mail className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-neutral-50 mb-6">
-                UpdaTionS
-              </h2>
-              <p className="text-xl text-neutral-100">
-                Read my Mail.
-              </p>
-            </div>
-            
-            <NewsletterForm />
-          </div>
-        </div>
+        <Newsletter />
       </section>
     </div>
   );

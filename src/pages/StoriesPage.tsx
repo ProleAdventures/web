@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Calendar, MapPin, Clock, ArrowRight, Tag, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Newsletter } from '../components/Newsletter';
 
 interface Story {
   id: string;
@@ -337,27 +338,7 @@ export const StoriesPage: React.FC = () => {
 
       {/* Newsletter Signup */}
       <section className="py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-elevated shadow-glass shadow-investigation rounded-3xl p-12 text-center">
-            <h3 className="font-display text-3xl font-bold text-neutral-50 mb-4">
-              Stay Connected
-            </h3>
-            <p className="text-lg text-neutral-100 mb-8">
-              Subscribe to receive the latest stuff 
-          
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 glass-elevated shadow-glass shadow-investigation rounded-xl text-neutral-100 placeholder-neutral-400 border-none focus:outline-none focus:ring-2 focus:ring-primary-300 backdrop-blur-xl"
-              />
-              <button className="px-6 py-3 bg-primary-700 hover:bg-primary-500 text-white rounded-xl font-medium transition-all duration-300 transform hover:scale-105">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+        <Newsletter title="Stay Connected" subtitle="Subscribe to receive the latest adventure stories and updates" />
       </section>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Shield, Heart, Zap, Star, HelpCircle, MessageSquare, Youtube, Mail } from 'lucide-react';
+import { Newsletter } from '../components/Newsletter';
 
 export const CommunityPage: React.FC = () => {
   const coreValues = [
@@ -209,9 +210,7 @@ export const CommunityPage: React.FC = () => {
               <p className="text-neutral-50 mb-6">
                 Monthly dispatches with new stories, gear reviews, and adventure tips
               </p>
-              <button className="glass-elevated shadow-glass shadow-investigation hover:glass-base text-neutral-50 hover:text-neutral-50 px-6 py-3 rounded-xl font-medium transition-all duration-300 backdrop-blur-xl">
-                Subscribe Free
-              </button>
+              <Newsletter className="mt-4" title="Join the Newsletter" subtitle="Get monthly adventure updates" />
             </div>
             
             <div className="glass-base shadow-glass shadow-investigation rounded-2xl p-8 text-center hover:glass-elevated transition-all duration-300">
