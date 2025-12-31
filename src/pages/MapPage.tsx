@@ -372,49 +372,28 @@ export const MapPage: React.FC = () => {
             ) : (
               // Featured videos when no location selected
               <>
-                {/* Urban Exploration Video */}
+                {/* Empty container ready for video */}
                 <div className="glass-elevated rounded-2xl p-6 hover:glass-elevated transition-all duration-300 shadow-glass shadow-investigation backdrop-blur-xl">
-                  <div className="aspect-video bg-black rounded-xl overflow-hidden mb-4">
-                    <iframe
-                      src="https://www.youtube.com/embed/b-tJOvF5w-k?rel=0&modestbranding=1&fs=1"
-                      className="w-full h-full"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title="Urban Exploration Stories"
-                    />
+                  <div className="aspect-video bg-black/50 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
+                    <div className="text-neutral-400 text-sm">Video coming soon</div>
                   </div>
                   <h4 className="font-semibold text-neutral-50 mb-2">Urban Exploration Stories</h4>
                   <p className="text-neutral-100 text-sm">Discovering hidden streets and underground cultures</p>
                 </div>
                 
-                {/* Nature & Reflection Video */}
+                {/* Empty container ready for video */}
                 <div className="glass-elevated rounded-2xl p-6 hover:glass-elevated transition-all duration-300 shadow-glass shadow-investigation backdrop-blur-xl">
-                  <div className="aspect-video bg-black rounded-xl overflow-hidden mb-4">
-                    <iframe
-                      src="https://www.youtube.com/embed/W0LT4RAQlCM?rel=0&modestbranding=1&fs=1"
-                      className="w-full h-full"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title="Nature & Wilderness"
-                    />
+                  <div className="aspect-video bg-black/50 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
+                    <div className="text-neutral-400 text-sm">Video coming soon</div>
                   </div>
                   <h4 className="font-semibold text-neutral-50 mb-2">Nature & Wilderness</h4>
                   <p className="text-neutral-100 text-sm">Finding peace and clarity in remote mountain landscapes</p>
                 </div>
                 
-                {/* Cultural Immersion Video */}
+                {/* Empty container ready for video */}
                 <div className="glass-elevated rounded-2xl p-6 hover:glass-elevated transition-all duration-300 shadow-glass shadow-investigation backdrop-blur-xl">
-                  <div className="aspect-video bg-black rounded-xl overflow-hidden mb-4">
-                    <iframe
-                      src="https://www.youtube.com/embed/L4dGNj-HUBc?rel=0&modestbranding=1&fs=1"
-                      className="w-full h-full"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title="Cultural Immersion"
-                    />
+                  <div className="aspect-video bg-black/50 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
+                    <div className="text-neutral-400 text-sm">Video coming soon</div>
                   </div>
                   <h4 className="font-semibold text-neutral-50 mb-2">Cultural Immersion</h4>
                   <p className="text-neutral-100 text-sm">Authentic experiences and local traditions around the world</p>
