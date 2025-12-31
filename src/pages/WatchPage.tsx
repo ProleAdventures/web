@@ -29,27 +29,27 @@ export const WatchPage: React.FC = () => {
       thumbnail: '/images/hero/neon-lit-city-night-long-exposure-travel-hong-kong.jpg'
     },
     {
-      id: 'dQw4w9WgXcQ',
-      title: 'Underground Adventures',
-      description: 'Exploring abandoned tunnels and forgotten spaces',
-      category: 'Urban Exploration',
-      duration: '9:45',
-      thumbnail: '/images/hero/atmospheric_dark_mountain_adventure_landscape.jpg'
-    },
-    {
-      id: 'ZZ5LpwO-An4',
-      title: 'Coastal Mysteries',
-      description: 'Uncovering secrets along remote coastlines',
+      id: 'CevxZvSJLk8',
+      title: 'Coastal Adventures',
+      description: 'Exploring dramatic coastlines and hidden beaches',
       category: 'Nature & Reflection',
-      duration: '14:18',
+      duration: '14:22',
       thumbnail: '/images/hero/backpacker-golden-hour-wilderness-adventure-gear.jpg'
     },
     {
-      id: 'J---aiyznGQ',
-      title: 'Urban Night Photography',
-      description: 'Capturing the essence of city life after dark',
+      id: 'M7lc1UVf-VE',
+      title: 'Mountain Summit Experience',
+      description: 'The journey to the top and what it teaches us',
+      category: 'Nature & Reflection',
+      duration: '16:45',
+      thumbnail: '/images/hero/atmospheric_dark_mountain_adventure_landscape.jpg'
+    },
+    {
+      id: 'fLexgOxsZu0',
+      title: 'Urban Photography Masterclass',
+      description: 'Professional techniques for capturing city life',
       category: 'Urban Exploration',
-      duration: '11:52',
+      duration: '19:12',
       thumbnail: '/images/hero/dynamic_city_night_light_trails_urban_skyline_travel_photography.jpg'
     }
   ];
