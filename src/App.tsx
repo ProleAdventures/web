@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/watch" element={<WatchPage />} />
-            <Route path="/mission-control" element={<MissionControlPage />} />
+            <Route path="/prole-control" element={<MissionControlPage />} />
             <Route path="/gear" element={<GearPage />} />
             <Route path="/stories" element={<StoriesPage />} />
             <Route path="/community" element={<CommunityPage />} />
