@@ -21,8 +21,8 @@ function App() {
         <main className="relative">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/map" element={<WatchPage />} />
-            <Route path="/watch" element={<MissionControlPage />} />
+            <Route path="/watch" element={<WatchPage />} />
+            <Route path="/mission-control" element={<MissionControlPage />} />
             <Route path="/gear" element={<GearPage />} />
             <Route path="/stories" element={<StoriesPage />} />
             <Route path="/community" element={<CommunityPage />} />

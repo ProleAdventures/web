@@ -8,8 +8,8 @@ export const Navigation: React.FC = () => {
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/watch', label: 'Mission Control', icon: Shield },
-    { path: '/map', label: 'Watch', icon: MapPin },
+    { path: '/mission-control', label: 'Mission Control', icon: Shield },
+    { path: '/watch', label: 'Watch', icon: MapPin },
     { path: '/stories', label: 'Read', icon: MapPin },
     { path: '/gear', label: 'Gear', icon: Camera },
   ];
