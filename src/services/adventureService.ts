@@ -115,7 +115,7 @@ export class AdventureService {
           display_lat: adventure.lat,
           display_lng: adventure.lng,
           display_title: adventure.codename, // Use codename for all non-scouting for consistency
-          display_description: adventure.description
+          display_description: adventure.display_description
         };
       });
     } catch (error) {
