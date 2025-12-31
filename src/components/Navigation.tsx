@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, Camera, MapPin, Users, Home } from 'lucide-react';
+import { Shield, Camera, MapPin, Users, Home, X } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
     { path: '/watch', label: 'Mission Control', icon: Shield },
-    { path: '/map', label: 'Journey Map', icon: MapPin },
+    { path: '/map', label: 'Watch', icon: MapPin },
     { path: '/stories', label: 'Stories', icon: MapPin },
     { path: '/gear', label: 'Gear', icon: Camera },
   ];
@@ -39,15 +40,46 @@ export const Navigation: React.FC = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden absolute right-4">
-            <button className="p-2 rounded-lg" aria-label="Toggle mobile menu">
-              <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <div className="w-5 h-0.5 bg-neutral-50 mb-1"></div>
-                <div className="w-5 h-0.5 bg-neutral-50 mb-1"></div>
-                <div className="w-5 h-0.5 bg-neutral-50"></div>
-              </div>
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg text-neutral-50 hover:text-primary-300 transition-colors"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <div className="w-6 h-6 flex flex-col justify-center items-center">
+                  <div className="w-5 h-0.5 bg-neutral-50 mb-1"></div>
+                  <div className="w-5 h-0.5 bg-neutral-50 mb-1"></div>
+                  <div className="w-5 h-0.5 bg-neutral-50"></div>
+                </div>
+              )}
             </button>
           </div>
         </div>
+        
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-gray-700/50">
+            <div className="px-4 py-6 space-y-4">
+              {navItems.map(({ path, label, icon: Icon }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                    location.pathname === path
+                      ? 'glass-elevated text-neutral-50 shadow-glass shadow-investigation'
+                      : 'glass-subtle text-neutral-100 hover:glass-base shadow-glass shadow-investigation'
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  <span>{label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

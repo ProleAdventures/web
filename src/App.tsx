@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { HomePage } from './pages/HomePage';
-import { MapPage } from './pages/MapPage';
+import { WatchPage } from './pages/WatchPage';
 import { MissionControlPage } from './pages/MissionControlPage';
 import { GearPage } from './pages/GearPage';
 import { StoriesPage } from './pages/StoriesPage';
@@ -21,7 +21,7 @@ function App() {
         <main className="relative">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/map" element={<MapPage />} />
+            <Route path="/map" element={<WatchPage />} />
             <Route path="/watch" element={<MissionControlPage />} />
             <Route path="/gear" element={<GearPage />} />
             <Route path="/stories" element={<StoriesPage />} />
