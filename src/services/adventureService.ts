@@ -1,6 +1,6 @@
 import { getAdventures, createAdventure, updateAdventureBounty, SecureAdventure, Adventure } from '../lib/supabase';
 
-// Sample adventure data for testing the Mission Control system
+// Sample adventure data for testing the Prole Control system
 export const sampleAdventures: Omit<Adventure, 'id' | 'created_at' | 'updated_at'>[] = [
   {
     title: "Birkbeck Tunnel Complex",

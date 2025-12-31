@@ -151,7 +151,7 @@ export const MissionControlPage: React.FC = () => {
           setSelectedAdventure(data[0]);
         }
       } catch (err) {
-        console.error('Failed to initialize Mission Control:', err);
+        console.error('Failed to initialize Prole Control:', err);
         setError('Failed to load mission data. Using demo mode.');
         
         // Final fallback to mock data
@@ -206,7 +206,7 @@ export const MissionControlPage: React.FC = () => {
       <div className="pt-16 min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-400 mx-auto mb-4"></div>
-          <p className="text-neutral-100 text-lg">Loading Mission Control...</p>
+          <p className="text-neutral-100 text-lg">Loading Prole Control...</p>
         </div>
       </div>
     );
@@ -217,7 +217,7 @@ export const MissionControlPage: React.FC = () => {
       <div className="pt-16 min-h-screen flex items-center justify-center">
         <div className="text-center max-w-md">
           <AlertTriangle className="w-16 h-16 text-red-400 mx-auto mb-4" />
-          <h2 className="text-xl font-bold text-neutral-50 mb-2">Mission Control Offline</h2>
+          <h2 className="text-xl font-bold text-neutral-50 mb-2">Prole Control Offline</h2>
           <p className="text-neutral-300 mb-4">{error}</p>
           <button 
             onClick={() => window.location.reload()} 

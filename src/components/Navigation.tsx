@@ -8,7 +8,7 @@ export const Navigation: React.FC = () => {
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/mission-control', label: 'Mission Control', icon: Shield },
+    { path: '/mission-control', label: 'Prole Control', icon: Shield },
     { path: '/watch', label: 'Watch', icon: MapPin },
     { path: '/stories', label: 'Read', icon: MapPin },
     { path: '/gear', label: 'Gear', icon: Camera },
