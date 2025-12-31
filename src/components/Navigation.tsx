@@ -10,7 +10,7 @@ export const Navigation: React.FC = () => {
     { path: '/', label: 'Home', icon: Home },
     { path: '/watch', label: 'Mission Control', icon: Shield },
     { path: '/map', label: 'Watch', icon: MapPin },
-    { path: '/stories', label: 'Stories', icon: MapPin },
+    { path: '/stories', label: 'Read', icon: MapPin },
     { path: '/gear', label: 'Gear', icon: Camera },
   ];
 
