@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Map, Camera, MapPin, Users, Home } from 'lucide-react';
+import { Shield, Camera, MapPin, Users, Home } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/map', label: 'Watch', icon: Map },
-    { path: '/stories', label: 'Read', icon: MapPin },
+    { path: '/watch', label: 'Mission Control', icon: Shield },
+    { path: '/map', label: 'Journey Map', icon: MapPin },
+    { path: '/stories', label: 'Stories', icon: MapPin },
     { path: '/gear', label: 'Gear', icon: Camera },
   ];
 
