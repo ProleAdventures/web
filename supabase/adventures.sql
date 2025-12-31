@@ -20,9 +20,12 @@ CREATE INDEX idx_adventures_location ON adventures(lat, lng);
 -- Enable Row Level Security
 ALTER TABLE adventures ENABLE ROW LEVEL SECURITY;
 
+-- Drop existing view if it exists with SECURITY DEFINER
+DROP VIEW IF EXISTS public.adventures_secure;
+
 -- Create a secure view that filters sensitive data for scouting missions
--- SECURITY INVOKER ensures RLS policies are respected
-CREATE OR REPLACE VIEW adventures_secure SECURITY INVOKER AS
+-- SECURITY INVOKER ensures RLS policies are respected (default behavior)
+CREATE VIEW public.adventures_secure AS
 SELECT 
     id,
     -- For scouting missions, return only safe data
