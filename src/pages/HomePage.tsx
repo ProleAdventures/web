@@ -54,7 +54,7 @@ export const HomePage: React.FC = () => {
       <section className="py-20 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-neutral-50 mb-6">
+            <h2 className="font-display text-5xl md:text-5xl lg:text-6xl font-bold text-neutral-50 mb-6">
               AdVeNTureS
             </h2>
           </div>

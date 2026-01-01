@@ -154,7 +154,7 @@ const TargetCard: React.FC<TargetCardProps> = ({ adventure, onBountyUpdate }) =>
         </div>
 
         {/* Contribution Form */}
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="number"
             placeholder="Amount"
@@ -167,7 +167,7 @@ const TargetCard: React.FC<TargetCardProps> = ({ adventure, onBountyUpdate }) =>
           <button
             onClick={handleBountyContribution}
             disabled={!bountyAmount || isUpdatingBounty}
-            className="bg-green-600 hover:bg-green-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            className="bg-green-600 hover:bg-green-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg font-medium transition-colors w-full sm:w-auto"
           >
             {isUpdatingBounty ? 'Processing...' : 'Contribute'}
           </button>

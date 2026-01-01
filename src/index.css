@@ -272,9 +272,10 @@
   animation: spin 1s linear infinite;
 }
 
-/* Responsive typography */
+/* Responsive typography - enhanced for better mobile readability */
 @media (max-width: 640px) {
   .font-display {
-    font-size: 0.9em;
+    font-size: 1.1em; /* Slightly larger on mobile for better readability */
+    line-height: 1.1; /* Tighter line height for headings */
   }
 }

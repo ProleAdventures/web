@@ -124,7 +124,7 @@ export const GearPage: React.FC = () => {
       {/* Current Kit */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-display text-3xl font-bold text-neutral-50 mb-8 text-center">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-50 mb-8 text-center">
             Current Prole Kit
           </h2>
           
