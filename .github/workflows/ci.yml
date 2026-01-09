@@ -30,11 +30,9 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: ./mysterious-adventure-travel
       
       - name: Run ESLint
         run: pnpm lint
-        working-directory: ./mysterious-adventure-travel
 
   typecheck:
     name: Type Check
@@ -56,11 +54,9 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: ./mysterious-adventure-travel
       
       - name: Run TypeScript check
         run: pnpm exec tsc --noEmit
-        working-directory: ./mysterious-adventure-travel
 
   build:
     name: Build
@@ -83,17 +79,15 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: ./mysterious-adventure-travel
       
       - name: Build production
         run: pnpm build:prod
-        working-directory: ./mysterious-adventure-travel
       
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build
-          path: ./mysterious-adventure-travel/dist
+          path: ./dist
           retention-days: 7
 
   # Security audit (optional)
@@ -117,9 +111,7 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: ./mysterious-adventure-travel
       
       - name: Run security audit
         run: pnpm audit --audit-level=high
-        working-directory: ./mysterious-adventure-travel
         continue-on-error: true
