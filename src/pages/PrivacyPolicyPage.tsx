@@ -40,10 +40,10 @@ export const PrivacyPolicyPage: React.FC = () => {
                     <li>Message content (when you send us a message)</li>
                     <li>YouTube channel engagement data</li>
                   </ul>
-                </div>
+                </section>
 
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">How We Use Your Information</h2>
+                <section aria-labelledby="how-we-use">
+                  <h2 id="how-we-use" className="text-2xl font-semibold text-green-400 mb-4">How We Use Your Information</h2>
                   <p>We use the information we collect to:</p>
                   <ul className="list-disc list-inside mt-4 space-y-2">
                     <li>Respond to your messages and inquiries</li>
@@ -51,26 +51,26 @@ export const PrivacyPolicyPage: React.FC = () => {
                     <li>Improve our website and content</li>
                     <li>Comply with legal obligations</li>
                   </ul>
-                </div>
+                </section>
 
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">Information Sharing</h2>
+                <section aria-labelledby="info-sharing">
+                  <h2 id="info-sharing" className="text-2xl font-semibold text-green-400 mb-4">Information Sharing</h2>
                   <p>
                     We do not sell, trade, or otherwise transfer your personal information to third parties 
                     without your consent, except as described in this policy or as required by law.
                   </p>
-                </div>
+                </section>
 
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">Data Security</h2>
+                <section aria-labelledby="data-security">
+                  <h2 id="data-security" className="text-2xl font-semibold text-green-400 mb-4">Data Security</h2>
                   <p>
                     We implement appropriate security measures to protect your personal information against 
                     unauthorized access, alteration, disclosure, or destruction.
                   </p>
-                </div>
+                </section>
 
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">Your Rights</h2>
+                <section aria-labelledby="your-rights">
+                  <h2 id="your-rights" className="text-2xl font-semibold text-green-400 mb-4">Your Rights</h2>
                   <p>You have the right to:</p>
                   <ul className="list-disc list-inside mt-4 space-y-2">
                     <li>Access and review your personal information</li>
@@ -78,37 +78,38 @@ export const PrivacyPolicyPage: React.FC = () => {
                     <li>Request deletion of your personal information</li>
                     <li>Unsubscribe from communications at any time</li>
                   </ul>
-                </div>
+                </section>
 
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">Third-Party Services</h2>
+                <section aria-labelledby="third-party">
+                  <h2 id="third-party" className="text-2xl font-semibold text-green-400 mb-4">Third-Party Services</h2>
                   <p>
                     Our website may contain links to third-party websites or integrate with services 
                     like YouTube. We are not responsible for the privacy practices of these external services.
                   </p>
-                </div>
+                </section>
 
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">Contact Us</h2>
+                <section aria-labelledby="contact-us">
+                  <h2 id="contact-us" className="text-2xl font-semibold text-green-400 mb-4">Contact Us</h2>
                   <p>
                     If you have questions about this Privacy Policy, please contact us at{' '}
                     <a href="mailto:hello@proleadventures.com" className="text-green-400 hover:text-green-300">
                       hello@proleadventures.com
                     </a>
                   </p>
-                </div>
+                </section>
 
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">Changes to This Policy</h2>
+                <section aria-labelledby="changes">
+                  <h2 id="changes" className="text-2xl font-semibold text-green-400 mb-4">Changes to This Policy</h2>
                   <p>
                     We may update this Privacy Policy from time to time. We will notify you of any 
                     changes by posting the new policy on this page and updating the "Last updated" date.
                   </p>
-                </div>
+                </section>
               </div>
             </div>
-          </div>
-        </main>
-      </div>
-    );
+          </article>
+        </div>
+      </main>
+    </div>
+  );
 };
