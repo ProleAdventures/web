@@ -119,6 +119,9 @@ export const StoriesPage: React.FC = () => {
                   src={selectedStory.featured_image}
                   alt={selectedStory.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  width="800"
+                  height="450"
                 />
               </div>
               
@@ -237,6 +240,9 @@ export const StoriesPage: React.FC = () => {
                         src={featuredStory.featured_image}
                         alt={featuredStory.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        width="600"
+                        height="600"
                       />
                     </div>
                     
@@ -298,6 +304,9 @@ export const StoriesPage: React.FC = () => {
                         src={story.featured_image}
                         alt={story.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        loading="lazy"
+                        width="400"
+                        height="225"
                       />
                     </div>
                     

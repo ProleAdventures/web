@@ -1,12 +1,41 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'YOUR_SUPABASE_URL';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
+// Only create Supabase client if environment variables are properly set
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Strict validation - must be a non-empty, valid Supabase URL
+const isValidSupabaseUrl = 
+  supabaseUrl && 
+  typeof supabaseUrl === 'string' &&
+  supabaseUrl.trim().length > 0 &&
+  supabaseUrl.startsWith('http') &&
+  (supabaseUrl.includes('supabase.co') || supabaseUrl.includes('supabase.com')) &&
+  !supabaseUrl.includes('your-project') &&
+  !supabaseUrl.includes('placeholder');
+
+const isValidSupabaseKey = 
+  supabaseAnonKey && 
+  typeof supabaseAnonKey === 'string' &&
+  supabaseAnonKey.trim().length > 0 &&
+  !supabaseAnonKey.includes('your-anon-key');
+
+// Create client only if config is strictly valid, otherwise set to null
+export const supabase = (isValidSupabaseUrl && isValidSupabaseKey) 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
+
+// Debug log in development
+if (!supabase && import.meta.env.DEV) {
+  console.log('Supabase client not initialized - missing or invalid environment variables');
+  console.log('VITE_SUPABASE_URL:', supabaseUrl || 'not set');
+  console.log('VITE_SUPABASE_ANON_KEY:', supabaseAnonKey ? '***set***' : 'not set');
+}
 
 // Helper functions for database operations
 export const saveContactMessage = async (name: string, email: string, message: string) => {
+  if (!supabase) throw new Error('Supabase not configured');
+  
   const { data, error } = await supabase
     .from('contact_messages')
     .insert([
@@ -22,6 +51,8 @@ export const saveContactMessage = async (name: string, email: string, message: s
 };
 
 export const saveNewsletterEmail = async (email: string) => {
+  if (!supabase) throw new Error('Supabase not configured');
+  
   const { data, error } = await supabase
     .from('newsletter_signups')
     .insert([
@@ -70,6 +101,8 @@ export interface SecureAdventure {
 
 // Adventure operations
 export const getAdventures = async (): Promise<SecureAdventure[]> => {
+  if (!supabase) throw new Error('Supabase not configured');
+  
   const { data, error } = await supabase
     .from('adventures')
     .select('*')
@@ -84,6 +117,8 @@ export const getAdventures = async (): Promise<SecureAdventure[]> => {
 };
 
 export const getAdventureById = async (id: string): Promise<Adventure | null> => {
+  if (!supabase) throw new Error('Supabase not configured');
+  
   const { data, error } = await supabase
     .from('adventures')
     .select('*')
@@ -99,6 +134,8 @@ export const getAdventureById = async (id: string): Promise<Adventure | null> =>
 };
 
 export const createAdventure = async (adventure: Omit<Adventure, 'id' | 'created_at' | 'updated_at'>): Promise<Adventure> => {
+  if (!supabase) throw new Error('Supabase not configured');
+  
   const { data, error } = await supabase
     .from('adventures')
     .insert([{
@@ -118,6 +155,8 @@ export const createAdventure = async (adventure: Omit<Adventure, 'id' | 'created
 };
 
 export const updateAdventureBounty = async (id: string, amount: number): Promise<Adventure> => {
+  if (!supabase) throw new Error('Supabase not configured');
+  
   const { data, error } = await supabase
     .from('adventures')
     .update({ 

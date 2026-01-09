@@ -48,6 +48,9 @@ export const AboutPage: React.FC = () => {
                   src="/images/travel/mysterious_urban_alley_night_graffiti_cobblestone.jpg"
                   alt="Urban exploration"
                   className="w-full h-96 object-cover rounded-2xl shadow-glass"
+                  loading="lazy"
+                  width="400"
+                  height="384"
                 />
               </div>
             </div>

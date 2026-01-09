@@ -1,4 +1,4 @@
-import { getAdventures, createAdventure, updateAdventureBounty, SecureAdventure, Adventure } from '../lib/supabase';
+import { supabase, getAdventures, createAdventure, updateAdventureBounty, SecureAdventure, Adventure } from '../lib/supabase';
 
 // Sample adventure data for testing the Prole Control system
 export const sampleAdventures: Omit<Adventure, 'id' | 'created_at' | 'updated_at'>[] = [
@@ -64,11 +64,50 @@ export const sampleAdventures: Omit<Adventure, 'id' | 'created_at' | 'updated_at
   }
 ];
 
+// Convert sample data to SecureAdventure format with jitter applied
+const convertToSecureAdventures = (adventures: Omit<Adventure, 'id' | 'created_at' | 'updated_at'>[]): SecureAdventure[] => {
+  return adventures.map(adventure => {
+    // Apply jitter to scouting missions
+    if (adventure.status === 'scouting') {
+      const jitterLat = adventure.lat + (Math.random() - 0.5) * 0.02;
+      const jitterLng = adventure.lng + (Math.random() - 0.5) * 0.02;
+      
+      return {
+        ...adventure,
+        id: crypto.randomUUID(),
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        display_lat: jitterLat,
+        display_lng: jitterLng,
+        display_title: adventure.codename,
+        display_description: 'CLASSIFIED MISSION - INTEL LOCKED'
+      };
+    }
+    
+    return {
+      ...adventure,
+      id: crypto.randomUUID(),
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      display_lat: adventure.lat,
+      display_lng: adventure.lng,
+      display_title: adventure.codename,
+      display_description: adventure.description || ''
+    };
+  });
+};
+
 // Adventure management service
 export class AdventureService {
   
   // Initialize sample data if no adventures exist
   static async initializeSampleData(): Promise<void> {
+    // Skip if Supabase is not configured
+    if (!supabase) {
+      console.log('Supabase not configured, skipping database initialization');
+      return;
+    }
+    
     try {
       const existingAdventures = await getAdventures();
       
@@ -90,6 +129,12 @@ export class AdventureService {
 
   // Get adventures with security filtering applied
   static async getSecureAdventures(): Promise<SecureAdventure[]> {
+    // If Supabase is not configured, return mock data directly
+    if (!supabase) {
+      console.log('Supabase not configured, using mock adventure data');
+      return convertToSecureAdventures(sampleAdventures);
+    }
+    
     try {
       // This would use the secure view in production
       // For now, we'll apply client-side filtering as a demonstration
@@ -119,13 +164,20 @@ export class AdventureService {
         };
       });
     } catch (error) {
-      console.error('Failed to fetch secure adventures:', error);
-      throw error;
+      console.error('Failed to fetch secure adventures, falling back to mock data:', error);
+      // Fallback to mock data on any error
+      return convertToSecureAdventures(sampleAdventures);
     }
   }
 
   // Update adventure bounty with contribution
   static async contributeToMission(adventureId: string, amount: number): Promise<Adventure> {
+    // Skip if Supabase is not configured
+    if (!supabase) {
+      console.log('Supabase not configured, cannot contribute to mission');
+      throw new Error('Supabase not configured');
+    }
+    
     try {
       // In a real implementation, this would include user authentication
       // and transaction processing
@@ -179,7 +231,7 @@ export class AdventureService {
       complete: adventures.filter(a => a.status === 'complete').length,
       totalBountyTarget: adventures.reduce((sum, a) => sum + a.bounty_target, 0),
       totalBountyCurrent: adventures.reduce((sum, a) => sum + a.bounty_current, 0),
-      completionRate: adventures.filter(a => a.status === 'complete').length / adventures.length * 100
+      completionRate: adventures.length > 0 ? adventures.filter(a => a.status === 'complete').length / adventures.length * 100 : 0
     };
     
     return stats;
