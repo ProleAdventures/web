@@ -39,6 +39,8 @@ export const HomePage: React.FC = () => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
+        role="banner"
+        aria-label="Hero section"
       >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
@@ -46,6 +48,10 @@ export const HomePage: React.FC = () => {
             src="/images/hero-logo.webp" 
             alt="Prole Adventures Logo" 
             className="w-full max-w-md mx-auto h-auto"
+            width="400"
+            height="200"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
       </section>
@@ -71,6 +77,9 @@ export const HomePage: React.FC = () => {
                     src={adventure.image}
                     alt={adventure.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                    width="400"
+                    height="225"
                   />
                 </div>
                 <div className="p-6">

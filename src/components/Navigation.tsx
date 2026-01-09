@@ -15,7 +15,11 @@ export const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50">
+    <nav 
+      className="fixed top-0 w-full z-50" 
+      role="navigation" 
+      aria-label="Main navigation"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-16">
           {/* Desktop Navigation */}
@@ -25,6 +29,7 @@ export const Navigation: React.FC = () => {
                 <Link
                   key={path}
                   to={path}
+                  aria-current={location.pathname === path ? 'page' : undefined}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
                     location.pathname === path
                       ? 'glass-elevated text-neutral-50 shadow-glass shadow-investigation backdrop-blur-xl'

@@ -259,6 +259,7 @@ export const MissionControlPage: React.FC = () => {
               const IconComponent = filter.icon;
               return (
                 <button
+                  type="button"
                   key={filter.id}
                   onClick={() => setSelectedStatus(filter.id)}
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${

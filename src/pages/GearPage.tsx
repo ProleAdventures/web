@@ -88,8 +88,10 @@ export const GearPage: React.FC = () => {
           {/* Search and Filter */}
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="relative flex-1">
+              <label htmlFor="gear-search" className="sr-only">Search gear</label>
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
               <input
+                id="gear-search"
                 type="text"
                 placeholder="Search gear..."
                 value={searchTerm}
@@ -99,8 +101,10 @@ export const GearPage: React.FC = () => {
             </div>
             
             <div className="flex items-center space-x-2">
+              <label htmlFor="category-filter" className="sr-only">Filter by category</label>
               <Filter className="text-neutral-400 w-5 h-5" />
               <select
+                id="category-filter"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="px-4 py-3 glass-elevated shadow-glass shadow-investigation rounded-xl text-neutral-100 border-none focus:outline-none focus:ring-2 focus:ring-primary-300 backdrop-blur-xl"
@@ -134,8 +138,11 @@ export const GearPage: React.FC = () => {
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={item.image}
-                    alt={item.name}
+                    alt={`${item.name} - ${item.category} gear`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    width="400"
+                    height="225"
                   />
                 </div>
                 

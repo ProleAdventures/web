@@ -1,0 +1,12 @@
+# ===============================================
+# Robots.txt for Prole Adventures
+# ===============================================
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://proleadventures.com/sitemap.xml
+
+# Disallow private/admin paths
+Disallow: /prole-control/
+Disallow: /api/

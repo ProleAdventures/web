@@ -1,30 +1,36 @@
 import React from 'react';
 
 export const PrivacyPolicyPage: React.FC = () => {
+  const lastUpdated = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
   return (
     <div className="pt-16 min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <header className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="glass-elevated rounded-3xl p-12 shadow-glass shadow-investigation backdrop-blur-xl">
             <h1 className="font-display text-5xl md:text-6xl font-bold text-neutral-50 mb-6">
               Privacy Policy
             </h1>
             <p className="text-xl text-neutral-100">
-              Last updated: November 6, 2024
+              Last updated: {lastUpdated}
             </p>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Content */}
-      <section className="py-20 px-4">
+      <main className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="glass-elevated rounded-3xl p-12 shadow-glass shadow-investigation">
+          <article className="glass-elevated rounded-3xl p-12 shadow-glass shadow-investigation">
             <div className="prose prose-invert max-w-none">
               <div className="space-y-8 text-neutral-100 leading-relaxed">
-                <div>
-                  <h2 className="text-2xl font-semibold text-green-400 mb-4">Information We Collect</h2>
+                <section aria-labelledby="info-collection">
+                  <h2 id="info-collection" className="text-2xl font-semibold text-green-400 mb-4">Information We Collect</h2>
                   <p>
                     We collect information you provide directly to us, such as when you contact us through 
                     our contact form, subscribe to our newsletter, or engage with our content.
@@ -102,8 +108,7 @@ export const PrivacyPolicyPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        </main>
+      </div>
+    );
 };

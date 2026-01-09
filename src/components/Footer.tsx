@@ -2,8 +2,10 @@ import React from 'react';
 import { MapPin, Camera, Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="mt-20 border-t border-white/10">
+    <footer className="mt-20 border-t border-white/10" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -22,8 +24,8 @@ export const Footer: React.FC = () => {
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-neutral-50 mb-4">Outpost</h3>
-            <ul className="space-y-2">
-              <li><a href="/map" className="text-neutral-300 hover:text-primary-300 transition-colors">Watch</a></li>
+            <ul className="space-y-2" role="list">
+              <li><a href="/watch" className="text-neutral-300 hover:text-primary-300 transition-colors">Watch</a></li>
               <li><a href="/stories" className="text-neutral-300 hover:text-primary-300 transition-colors">Read</a></li>
               <li><a href="/gear" className="text-neutral-300 hover:text-primary-300 transition-colors">Gear</a></li>
             </ul>
@@ -64,7 +66,7 @@ export const Footer: React.FC = () => {
                 </svg>
               </a>
             </div>
-            <div className="space-y-2">
+            <ul className="space-y-2" role="list">
               <li>
                 <a href="/about" className="text-neutral-300 hover:text-primary-300 transition-colors">
                   About
@@ -75,13 +77,13 @@ export const Footer: React.FC = () => {
                   Contact
                 </a>
               </li>
-            </div>
+            </ul>
           </div>
         </div>
         
         <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-neutral-300 text-sm">
-            © 2024 Prole Adventures. All rights reserved.
+            © {currentYear} Prole Adventures. All rights reserved.
           </p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <a href="/privacy-policy" className="text-neutral-300 hover:text-primary-300 transition-colors text-sm">
